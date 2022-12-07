@@ -392,7 +392,7 @@ public class Transactions extends Bank{
         f.add(err);
 
         f.setLayout(null);
-        f.setSize(600, 700);
+        f.setSize(1000, 700);
         f.setVisible(true);
     }
 
@@ -751,6 +751,8 @@ public class Transactions extends Bank{
         l10.setText("Interest Rate: " + this.getInterestRate());
     }
 
+    private int randomCount = 1;
+    
     private void convertRandomToDong() {
         // put currencies in hashmap
         HashMap<String, Double> currencies = new HashMap<>();
@@ -766,7 +768,7 @@ public class Transactions extends Bank{
         // get random number from 0 to 9
         int randomInt = new Random().nextInt(9);
         
-        private int randomCount = 1;
+
         
         // convert random currency
         double interestRate = 0;
