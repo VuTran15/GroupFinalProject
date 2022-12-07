@@ -765,7 +765,9 @@ public class Transactions extends Bank{
 
         // get random number from 0 to 9
         int randomInt = new Random().nextInt(9);
-
+        
+        private int randomCount = 1;
+        
         // convert random currency
         double interestRate = 0;
         int count = 0;
@@ -799,10 +801,16 @@ public class Transactions extends Bank{
                 }
                 CurrencyConverter currencyConverter = new CurrencyConverter();
                 double converted = currencyConverter.converter(currencies.get(i), interestRate);
-                err.setBounds(50, 600, 300, 30);
-                err.setText(i + ": " + currencies.get(i) + " Converted to Dong: " + converted);
+                err.setBounds(50, 600, 600, 30);
+                if (randomCount == 1) {
+                    err.setText("1)." + i + ": " + currencies.get(i) + " Converted: " + converted);
+                    convertRandomToDong();
+                }
+                else
+                    err.setText( err.getText() + "   " + randomCount + "). " + i + ": " + currencies.get(i) + " Converted: " + converted );
                 f.revalidate();
                 f.repaint();
+                randomCount++;
             }
             count++;
         }
